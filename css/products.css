@@ -1,0 +1,124 @@
+body {
+    background-color: var(--bg-color);
+}
+
+.productos-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
+
+#product-list {
+    max-width: 1080px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px auto;
+}
+.product-item {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 321px;
+    background-color: #c7b8f7;
+    border-radius: 15px;
+    border-style: outset;
+    margin: 14px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+
+.product-item:hover {
+    transform: scale(1.01);
+    border-style: inset;
+}
+
+.product-item h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.product-item > p {
+    height: 1000px;
+}
+
+.product-item h2, .product-item p  {
+    margin: 5px;
+}
+
+.product-item div p {
+    display: inline-block;
+}
+
+.product-item img {
+    width: 100%;
+    background-size: cover;
+    border-radius: 10px;
+}
+#botonCarrito{
+display: flex;
+justify-content: center;
+}
+#Descripción{
+    display: flex;
+    text-align: center;
+    height: 100%;
+}
+.carritodecompras i{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: large;
+}
+#carritoCompras{
+    background-color:hsl(255, 42%, 35%);
+    color:hsl(254, 29%, 80%);
+    border: none;
+    background-image: linear-gradient(
+        150deg,
+        hsl(254, 43%, 55%),
+        hsl(255, 29%, 49%),
+        hsl(255, 63%, 35%)
+    );
+    border-radius: 8px;
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+#carritoCompras span{
+background-color: hsl(255, 29%, 49%);
+padding: 1px 1px;
+border-radius: 6px;
+transition: .3s;
+}
+#carritoCompras:hover span{
+    background:none;
+}
+#carritoCompras:active{
+transform: scale(0.9);
+}
+#carrito{
+    display: flex;
+    align-items: center;
+    transform: translateX(370px);
+}
+#testeo{
+    height: 120%;
+    background-color: #c7b8f7;
+    border-radius: 8px;
+}
+
+
+

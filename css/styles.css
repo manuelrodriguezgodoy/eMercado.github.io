@@ -1,17 +1,59 @@
+:root {
+  --bg-color: #e3e0ff;
+  --bg-color-2: #8d88dc;
+
+  --pink-1: #ffd6ff;
+  --pink-2: #ffc8ff;
+  --light-purple-1: #e7c6ff;
+  --light-purple-2: #e2b9ff;
+  --purple-1: #c8b6ff;
+  --purple-2: #beaaff;
+  --blue-1: #b8c0ff;
+  --blue-2: #aab4ff;
+  --light-blue-1: #bbd0ff;
+  --light-blue-2: #afc9ff;
+}
+.img-encabezado{
+  background-image: url(/img/banner.jpg);
+  margin-bottom: 15px;
+}
+.box-item{
+  gap: 15px;
+}
+.encabezado-cat{
+  margin-right: 35%;
+}
+
+#background{
+  background-color: #e3e0ff;
+}
+.list-group-item-action{
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.list-group-item-action:hover{
+  transform: scale(1.01);
+  border-style: inset;
+}
 .jumbotron,
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: "Verdana", serif !important;
 }
 
 .jumbotron .display-4 {
   font-weight: bold;
 }
-
-nav a {
-  text-decoration: none;
+.m-3{
+  background-color: #d1c1ff;
+  border-radius: 5px;
+  text-align: center;
+  border-style: inset;
+  border:2px solid #e4dde8;
 }
+
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -22,30 +64,17 @@ nav a {
   user-select: none;
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: black;
   font-weight: bold;
-}
-
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
 }
 
 .jumbotron p:last-child {
@@ -67,18 +96,40 @@ nav a {
   font-size: 38px;
 }
 
+.navbar {
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.navbar ul li {
+  cursor: pointer;
+}
+
+main {
+  min-height: calc(100vh - 210px);
+  margin-top: 50px;
+}
+
 footer {
+  background-color:  #e3e0ff ;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -86,7 +137,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -147,16 +198,6 @@ footer p {
   animation-delay: -0.15s;
 }
 
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .signin {
   width: 100%;
   max-width: 330px;
@@ -175,16 +216,80 @@ footer p {
   display: none;
 }
 
-main {
-  min-height: calc(100vh - 210px);
+.checked {
+  color: orange;
 }
 
-a.custom-card,
-a.custom-card:hover {
+.custom-card{
+  transition: all 0.5s ease-in-out ;
+}
+.custom-card:hover {
   color: inherit;
   text-decoration: inherit;
+  transform: scale(1.05);
 }
 
 .checked {
   color: orange;
 }
+
+.navbar {
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main {
+  margin-top: 50px;
+}
+
+.navbar ul li {
+  cursor: pointer;
+}
+
+#contenido {
+  pointer-events: all;
+  
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+#loginButton{
+  font-size: 14px;
+  font-family:Arial, Helvetica, sans-serif;
+  border-color: rgba(207, 207, 207, 0.998);
+  border-radius: 5px;
+  background-color:#afd4f2;
+}
+.popup-content {
+  background-color: rgba(236, 217, 243, 0.844);
+  padding: 20px;
+  border-color: rgba(207, 207, 207, 0.387);
+  border-radius: 5px;
+border-style: inset;
+  border-radius: 5px;
+  text-align: center;
+  cursor:pointer;
+}
+
