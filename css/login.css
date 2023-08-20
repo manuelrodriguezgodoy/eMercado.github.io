@@ -4,7 +4,7 @@
     font-family: 'Merriweather', serif;
 }
 body{
-    background-image: url(/img/banner.jpg);
+    background-image: url(../banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;

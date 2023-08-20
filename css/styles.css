@@ -14,7 +14,7 @@
   --light-blue-2: #afc9ff;
 }
 .img-encabezado{
-  background-image: url(/img/banner.jpg);
+  background-image: url(../banner.jpg);
   margin-bottom: 15px;
 }
 .box-item{
@@ -46,12 +46,20 @@
 .jumbotron .display-4 {
   font-weight: bold;
 }
+
 .m-3{
-  background-color: #d1c1ff;
-  border-radius: 5px;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 8px 80px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 25px 0;
   text-align: center;
-  border-style: inset;
-  border:2px solid #e4dde8;
+  font-size: 20px;
+  color: white;
+  background: rgb(255, 177, 255);
+  background: linear-gradient(90deg, rgba(255, 177, 255, 1) 0%, rgba(218, 165, 255, 1) 50%, rgba(168, 142, 255, 1) 100%);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -222,11 +230,20 @@ footer p {
 
 .custom-card{
   transition: all 0.5s ease-in-out ;
+  background-color: var(--bg-color);
 }
 .custom-card:hover {
   color: inherit;
   text-decoration: inherit;
   transform: scale(1.05);
+}
+
+.card-body {
+  padding-top: 0;
+}
+
+.card-text {
+  text-align: center;
 }
 
 .checked {

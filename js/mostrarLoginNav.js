@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <p id="email-p">${userEmail}</p>
   <input type="image" src=${
     localStorage.getItem(`${userEmail}-icon`) ||
-    "../img/iconos_perfil/foto-login-perfil.png"
+    "./iconos_perfil/foto-login-perfil.png"
   } id="perfil" class="foto-perfil-login">
     </input>
   <div class="tarjeta" id="tarjeta">
@@ -25,44 +25,44 @@ document.addEventListener("DOMContentLoaded", function () {
               <h2>Elige tu icono de perfil</h2>
               <div class="opciones-icono">
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/hombre_(1).png">
-                      <img src="../img/iconos_perfil/hombre_(1).png" />
+                      data-icon="./iconos_perfil/hombre_(1).png">
+                      <img src="./iconos_perfil/hombre_(1).png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/hombre_(2).png">
-                      <img src="../img/iconos_perfil/hombre_(2).png" />
+                      data-icon="./iconos_perfil/hombre_(2).png">
+                      <img src="./iconos_perfil/hombre_(2).png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/hombre_(3).png">
-                      <img src="../img/iconos_perfil/hombre_(3).png" />
+                      data-icon="./iconos_perfil/hombre_(3).png">
+                      <img src="./iconos_perfil/hombre_(3).png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/hombre.png">
-                      <img src="../img/iconos_perfil/hombre.png" />
+                      data-icon="./iconos_perfil/hombre.png">
+                      <img src="./iconos_perfil/hombre.png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/usuario.png">
-                      <img src="../img/iconos_perfil/usuario.png" />
+                      data-icon="./iconos_perfil/usuario.png">
+                      <img src="./iconos_perfil/usuario.png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/mujer_(1).png">
-                      <img src="../img/iconos_perfil/mujer_(1).png" />
+                      data-icon="./iconos_perfil/mujer_(1).png">
+                      <img src="./iconos_perfil/mujer_(1).png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/mujer_(2).png">
-                      <img src="../img/iconos_perfil/mujer_(2).png" />
+                      data-icon="./iconos_perfil/mujer_(2).png">
+                      <img src="./iconos_perfil/mujer_(2).png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/mujer_(3).png">
-                      <img src="../img/iconos_perfil/mujer_(3).png" />
+                      data-icon="./iconos_perfil/mujer_(3).png">
+                      <img src="./iconos_perfil/mujer_(3).png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/mujer.png">
-                      <img src="../img/iconos_perfil/mujer.png" />
+                      data-icon="./iconos_perfil/mujer.png">
+                      <img src="./iconos_perfil/mujer.png" />
                   </button>
                   <button class="opcion-icono"
-                      data-icon="../img/iconos_perfil/jugador.png">
-                      <img src="../img/iconos_perfil/jugador.png" />
+                      data-icon="./iconos_perfil/jugador.png">
+                      <img src="./iconos_perfil/jugador.png" />
                   </button>
                   </div>
                   </div>
