@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>eMercado - Todo lo que busques está aquí</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/products.css" rel="stylesheet">
+      rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/products.css" rel="stylesheet" />
+    <link href="css/categories.css" rel="stylesheet" />
   </head>
 
   <body>
     <div id="contenido">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
         <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false"
+            aria-controls="navbarNav"
+            aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,23 +41,61 @@
               <li class="nav-item">
                 <a class="nav-link" href="sell.html">Vender</a>
               </li>
-              <li class="nav-item">
-              </li>
+              <li class="nav-item"></li>
             </ul>
           </div>
         </div>
       </nav>
-      <div class="img-encabezado">
-      </div>
+      <div class="img-encabezado"></div>
       <main class="pb-5 product-container">
         <div class="productos-titulo">
           <h1>Productos</h1>
-          <h5>Veras aqui todos los productos de la categoria <span
-              id="categoria-producto">Autos</span></h5>
-          <!--TODO: hay que hacer que el span cambie con la categoria -->
+          <h5>
+            Veras aqui todos los productos de la categoria
+            <span id="categoria-producto"></span>
+          </h5>
+        </div>
+
+        <div id="contenedor-filtros-productos">
+          <div id="busqueda-productos">
+            <input type="search" id="busqueda-input" placeholder="Busqueda" />
+            <button id="busqueda-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div id="orden-productos">
+            <input type="radio" class="prod-radio" id="orden-alfabetico"
+              name="ordenar-prod-por" value="A-Z" checked />
+            <label class="prod-radio-label" for="orden-alfabetico">A-Z</label>
+
+            <input type="radio" class="prod-radio" id="orden-alfabetico-inv"
+              name="ordenar-prod-por" value="Z-A" />
+            <label class="prod-radio-label" for="orden-alfabetico-inv">Z-A</label>
+
+            <input type="radio" class="prod-radio" id="orden-precio-inv"
+              name="ordenar-prod-por" value="$-inv" />
+            <label class="prod-radio-label" for="orden-precio-inv">$↑</label>
+
+            <input type="radio" class="prod-radio" id="orden-precio"
+              name="ordenar-prod-por" value="$" />
+            <label class="prod-radio-label" for="orden-precio">$↓</label>
+
+            <input type="radio" class="prod-radio" id="orden-vendidos"
+              name="ordenar-prod-por" value="fav" />
+            <label class="prod-radio-label" for="orden-vendidos">★</label>
+          </div>
+          <div id="filtros-productos">
+            <p id="filtro-precio-texto">Filtra por precio:</p>
+            <label for="filtro-precio-min">Min: </label>
+            <input type="number" class="filtro-prod" id="filtro-precio-min"
+              name="filtro-precio-min" placeholder="min." />
+            <label for="filtro-precio-min">Max: </label>
+            <input type="number" class="filtro-prod" id="filtro-precio-max"
+              name="filtro-precio-max" placeholder="max." />
+            <button id="filtro-precio-btn">Filtrar</button>
+            <!--! <button id="borrar-filtros-btn" for="busqueda-input">Limpiar filtros</button> -->
+          </div>
         </div>
         <div class="container">
-          <ul id="product-list"></ul>
+          <ul id="product-list" class="product-list"></ul>
         </div>
       </main>
       <footer class="text-muted">
@@ -80,11 +122,11 @@
         <p>Debes estar logueado para acceder a este contenido.</p>
         <button id="loginButton">Iniciar Sesión</button>
       </div>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/init.js"></script>
-      <script src="js/products.js"></script>
-      <script src="js/loginPopUp.js"></script>
-      <script src="js/mostrarLoginNav.js"></script>
-</body>
-
-  </html>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/loginPopUp.js"></script>
+    <script src="js/mostrarLoginNav.js"></script>
+  </body>
+</html>

@@ -13,19 +13,26 @@
   --light-blue-1: #bbd0ff;
   --light-blue-2: #afc9ff;
 }
+.pb-5{
+  padding-bottom: 20px !important;
+}
 .img-encabezado{
-  background-image: url(../banner.jpg);
-  margin-bottom: 15px;
+  background-image: url(../banner_categories_products.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
+  padding-left: 10%;
 }
 .box-item{
   gap: 15px;
 }
-.encabezado-cat{
-  margin-right: 35%;
+
+.list-group {
+  padding: 0 40px;
 }
 
-#background{
-  background-color: #e3e0ff;
+.list-group-item {
+  background-color: var(--bg-color);
 }
 .list-group-item-action{
   transition: transform 0.3s ease;
@@ -93,6 +100,16 @@
   font-weight: 300;
 }
 
+.text-center {
+  position: relative;
+  top: 29px;
+  margin: 15px;
+}
+
+.btn{
+  margin: 10px;
+}
+
 .jumbotron .container {
   max-width: 40rem;
   background-color: rgba(255, 255, 255, 0.5);
@@ -120,10 +137,7 @@ nav a {
   cursor: pointer;
 }
 
-main {
-  min-height: calc(100vh - 210px);
-  margin-top: 50px;
-}
+
 
 footer {
   background-color:  #e3e0ff ;
@@ -268,7 +282,6 @@ main {
 
 #contenido {
   pointer-events: all;
-  
 }
 
 .popup {
@@ -280,6 +293,7 @@ main {
   height: 100%;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .popup::before {
@@ -310,3 +324,11 @@ border-style: inset;
   cursor:pointer;
 }
 
+.text-center {
+  margin-top: 25px;
+}
+
+/* filtro de categories.js que se encarga de crearlo y eliminarlo dependiendo de la condicion */
+.filtro{
+  display: none !important;
+}

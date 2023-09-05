@@ -50,10 +50,12 @@
 }
 
 #salir{
-    background-color: #c8c3f6; 
-    border-radius: 0 15px 15px 0;
-    width: 62px;
+    background-color: #a8a0f8;
+    display: grid;
+    place-items: start;
+    margin-bottom: 10px;
     padding: 5px;
+    border-radius: 0 15% 15% 0
 }
 
 #salir:hover{
@@ -81,8 +83,6 @@
 #popup-cambio-img{
     background-color: #c8c3f6;
     border: none;
-    margin-bottom: 15px;
-    border-radius: 0 15px 15px 0;
     cursor: pointer;
 }
 #popup-cambio-img:hover{
@@ -132,6 +132,12 @@
 
 }
 
-
+.nav-popup-boton {
+    display: grid;
+    place-items: start;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 0 15% 15% 0
+}
 
 

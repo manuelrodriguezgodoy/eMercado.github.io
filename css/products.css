@@ -2,7 +2,6 @@ body {
   background-color: #f8f9fa;
 }
 
-
 .carritodecompras i {
   display: flex;
   align-items: center;
@@ -16,8 +15,8 @@ body {
   transform: translateX(370px);
 }
 
-.img-encabezado{
-  background-image: url(/img/banner.jpg);
+.img-encabezado {
+  margin-right: 35%;
   position: absolute;
   width: 100%;
   height: 140px;
@@ -30,6 +29,7 @@ body {
   align-items: center;
   height: 140px;
   padding-top: 22px;
+  margin-bottom: 20px;
 }
 
 .product-container {
@@ -41,7 +41,7 @@ body {
   padding: 0;
 }
 
-#product-list {
+.product-list {
   max-width: 1080px;
   display: flex;
   flex-direction: row;
@@ -51,12 +51,12 @@ body {
 }
 
 .product-item {
-  position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
   margin: 14px;
   height: 410px;
-  width: 300px;
+  max-width: 300px;
   background-color: var(--bg-color);
   border-radius: 20px;
   cursor: pointer;
@@ -65,7 +65,6 @@ body {
   transition: all 0.3s ease;
   outline: 1px solid rgba(200, 182, 255, 0.5);
 }
-
 
 .product-item:hover {
   transform: scale(1.01);
@@ -82,18 +81,22 @@ body {
 }
 
 .product-item h2 {
-  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
   position: absolute;
   top: 147px;
   right: 5px;
-  width: 330px;
+  width: 280px;
   font-size: 26px;
   font-weight: bold;
   text-align: end;
+  white-space: nowrap;
   z-index: 2;
 }
 
-.product-gradiant {
+.product-gradient {
   display: block;
   position: absolute;
   height: 100px;
@@ -109,6 +112,15 @@ body {
   font-weight: bold;
   letter-spacing: -1px;
   font-size: 23px;
+}
+
+.box-descripcion {
+  margin-top: 10% !important;
+  font-size: 16px !important;
+}
+
+.box-botonpr {
+  margin-top: 10% !important;
 }
 
 .descripcion-producto {
@@ -144,7 +156,8 @@ body {
   outline: 1px solid white;
 }
 
-.vendidos-producto {
+.vendidos-producto,
+.cant-articulos {
   font-size: 15px;
   text-align: end;
   padding-right: 30px;
@@ -152,4 +165,108 @@ body {
 }
 
 /* Import font */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+
+/** BUSQUEDA, ORDEN Y FILTROS */
+/* Busqueda */
+#contenedor-filtros-productos {
+  display: block;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+
+#busqueda-productos input {
+  vertical-align: middle;
+  height: 36px;
+  width: 50%;
+  padding: 5px;
+  border: 1px solid darkgray;
+  border-radius: 20px 0 0 20px;
+}
+
+#busqueda-productos input:focus {
+  outline: none;
+}
+
+#busqueda-productos button {
+  vertical-align: middle;
+  width: 40px;
+  height: 36px;
+  margin-left: -5px;
+  padding: 0 10px 0 5px;
+  border: 1px solid gray;
+  border-radius: 0 20px 20px 0;
+  background-color: #bbb;
+}
+
+/* Orden */
+#orden-productos {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: #ccc;
+  overflow: hidden;
+  font-size: 0; /*! Importante, sino aparecen espacios entre los botones*/
+  /* Para cambiar font-size cambiar el de .prod-radio-label */
+}
+
+.prod-radio {
+  display: none;
+}
+
+.prod-radio-label {
+  display: inline-block;
+  padding: 4px 8px;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.prod-radio-label:hover {
+  color: black;
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+.prod-radio:checked + .prod-radio-label {
+  color: black;
+  background-color: gray;
+  cursor: pointer;
+}
+
+/* Precio  */
+
+#filtros-productos {
+  display: inline-block;
+  margin: 5px;
+}
+
+#filtro-precio-texto {
+  margin: 0;
+}
+
+#filtro-precio-btn {
+  margin: 0;
+}
+
+/* Quitar X de buscador */
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
