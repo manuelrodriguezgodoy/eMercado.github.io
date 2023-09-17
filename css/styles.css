@@ -13,17 +13,20 @@
   --light-blue-1: #bbd0ff;
   --light-blue-2: #afc9ff;
 }
-.pb-5{
+
+.pb-5 {
   padding-bottom: 20px !important;
 }
-.img-encabezado{
-  background-image: url(../banner_categories_products.png);
+
+.img-encabezado {
+  background-image: url(../img/banner_categories_products.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 160px;
   padding-left: 10%;
 }
-.box-item{
+
+.box-item {
   gap: 15px;
 }
 
@@ -34,15 +37,18 @@
 .list-group-item {
   background-color: var(--bg-color);
 }
-.list-group-item-action{
+
+.list-group-item-action {
   transition: transform 0.3s ease;
   cursor: pointer;
   border-radius: 10px;
 }
-.list-group-item-action:hover{
+
+.list-group-item-action:hover {
   transform: scale(1.01);
   border-style: inset;
 }
+
 .jumbotron,
 .card-body,
 .container,
@@ -54,7 +60,7 @@
   font-weight: bold;
 }
 
-.m-3{
+.m-3 {
   display: block;
   margin: auto;
   margin-bottom: 10px;
@@ -106,7 +112,7 @@
   margin: 15px;
 }
 
-.btn{
+.btn {
   margin: 10px;
 }
 
@@ -140,7 +146,7 @@ nav a {
 
 
 footer {
-  background-color:  #e3e0ff ;
+  background-color: #e3e0ff;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -242,10 +248,11 @@ footer p {
   color: orange;
 }
 
-.custom-card{
-  transition: all 0.5s ease-in-out ;
+.custom-card {
+  transition: all 0.5s ease-in-out;
   background-color: var(--bg-color);
 }
+
 .custom-card:hover {
   color: inherit;
   text-decoration: inherit;
@@ -306,22 +313,24 @@ main {
   backdrop-filter: blur(3px);
   z-index: -1;
 }
-#loginButton{
+
+#loginButton {
   font-size: 14px;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   border-color: rgba(207, 207, 207, 0.998);
   border-radius: 5px;
-  background-color:#afd4f2;
+  background-color: #afd4f2;
 }
+
 .popup-content {
   background-color: rgba(236, 217, 243, 0.844);
   padding: 20px;
   border-color: rgba(207, 207, 207, 0.387);
   border-radius: 5px;
-border-style: inset;
+  border-style: inset;
   border-radius: 5px;
   text-align: center;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .text-center {
@@ -329,6 +338,6 @@ border-style: inset;
 }
 
 /* filtro de categories.js que se encarga de crearlo y eliminarlo dependiendo de la condicion */
-.filtro{
+.filtro {
   display: none !important;
 }

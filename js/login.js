@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   logInButton.addEventListener("click", function () {
     const emailElement = document.getElementById("mailuser");
-    const passwordElement = document.getElementById("passworduser");
+    const passwordElement = document.getElementById("passwordUser");
     const emailHasAt = emailElement.value.includes("@");
     const emailHasDot = emailElement.value.includes(".");
     const passwordIsShort = passwordElement.value.length < 6;
@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //* Recordar al usuario cuando se checkea "Recuerdame"
   const recordarmeCheck = document.getElementById("recordarme");
   const mailInputElement = document.getElementById("mailuser");
-  const passwordInputElement = document.getElementById("passworduser");
+  const passwordInputElement = document.getElementById("passwordUser");
   let mailRecordado = localStorage.getItem("mailRecordado");
-  let passwordRecordada = localStorage.getItem("mailRecordado");
+  let passwordRecordada = localStorage.getItem("paswordRecordada");
 
   // Si contenido recordado es truthy (!= null)
   if (mailRecordado) {
@@ -60,3 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+//Se hace un eventListenner que al hacer click hace una funcion en la cual trae la contraseña del usuario y la pasa a tipo texto
+document
+  .getElementById("mostrarContraseña")
+  .addEventListener("click", function () {
+    var campoContraseña = document.getElementById("passwordUser");
+    if (campoContraseña.type === "password") {
+      campoContraseña.type = "text";
+    } else {
+      campoContraseña.type = "password";
+    }
+  });

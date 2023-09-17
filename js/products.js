@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
+
+
+  
+  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
+    "catID"
+  )}.json`;
   const productList = document.querySelector("#product-list");
   const spanproducts = document.getElementById("categoria-producto");
 
@@ -16,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const products = data.products;
         spanproducts.innerText = data.catName;
         mostrarArticulos(products);
+        let stringproducts = JSON.stringify(products)
+        sessionStorage.setItem("productsArray", stringproducts)
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -23,40 +30,47 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   obtenerArticulos(url); //Muestra inicial
 
-  //* Actualizar articulos en busqueda, orden y filtro
-  function actualizarArticulos(url) {
+  //* Actualizar articulos en busqueda, orden y filtro. Ya no usa fetch.
+  function actualizarArticulos() {
     eliminarArticulos();
-    obtenerArticulos(url);
+    mostrarArticulos(JSON.parse(sessionStorage.getItem("productsArray")));
   }
   // Busqueda
   document.getElementById("busqueda-input").addEventListener("keyup", () => {
-    actualizarArticulos(url);
+    debounce(()=>{actualizarArticulos();
+    }, 50);
   });
   // Orden
   document.getElementById("orden-productos").addEventListener("mouseup", () => {
-    actualizarArticulos(url);
+    debounce(()=>{actualizarArticulos();
+    }, 50);
   });
   // Filtro
   document.getElementById("filtro-precio-btn").addEventListener("click", () => {
-    actualizarArticulos(url);
+    debounce(()=>{actualizarArticulos();
+    }, 50);
   });
 
   //* Mostrar articulos
-  function mostrarArticulos(prodArr) {
+   function mostrarArticulos(prodArr) {
     ordenarArticulos(prodArr);
     let filteredProdArr = filtrarArticulos(prodArr);
 
     filteredProdArr.forEach((product) => {
       const productItem = document.createElement("div");
       productItem.classList.add("product-item");
-
+      //Al hacer click en un producto, guarda los datos del json en el localStorage pero en strings Luego se redirige al usuario a product-info.html
+      productItem.addEventListener("click", () => {
+        localStorage.setItem("productoClickeado", JSON.stringify(product));
+        window.location = "product-info.html";
+      });
       productItem.innerHTML = `
           <img src="${product.image}" alt="${product.name}">
           <h2 class="encabezado" title="${product.name}">${product.name}</h2>
           <div class="product-gradient"></div>
           <p class="precio-producto">$${product.cost} ${product.currency}</p>
           <p class="descripcion-producto">${product.description}</p>
-          <button class="boton-producto">Comprar</button>
+          <button class="boton-producto" data-id="${product.id}">Ver Producto</button>
           <p class="vendidos-producto">Vendidos: ${product.soldCount}</p>
           `;
 
@@ -71,7 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //* Ordenar articulos
   const ordenAlfabetico = document.getElementById("orden-alfabetico");
-  const ordenAlfabeticoInverso = document.getElementById("orden-alfabetico-inv");
+  const ordenAlfabeticoInverso = document.getElementById(
+    "orden-alfabetico-inv"
+  );
   const ordenPrecio = document.getElementById("orden-precio");
   const ordenPrecioInverso = document.getElementById("orden-precio-inv");
   const ordenMasVendidos = document.getElementById("orden-vendidos");
@@ -209,13 +225,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return prodArrFiltrado;
   }
+
+  /*Básicamete lo que hace es añadir un delay a la función que se elija en el parámetro func
+   porque hay algún evento que es asincrónico o que no espera para ser ejecutado en algún lado del 
+   código. Yo lo uso para actualizar el array de productos. Sin está funcion la actualización
+   se atrasa y causa que esté un input atrás. Es decir, si clickeas A-Z no pasa nada, pero si luego
+   clickeas otra cosa se aplica A-Z*/
+
+   //TODO: probar con internet de la feria para ver si 50ms es suficiente
+
+
+  let debounceTimeout;
+
+  function debounce(func, delay) {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(func, delay);
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("busqueda-input");
   const botonBorrar = document.getElementById("borrar-filtros-btn");
 
+  //TODO arreglar Uncaught Error
   botonBorrar.addEventListener("click", () => {
     input.value = ""; // Borra el contenido del campo de búsqueda
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".boton-producto");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Obtén el id del producto desde el atributo data-id
+      const productId = button.getAttribute("data-id");
+
+      // Redirige a la página "product-info.html" con el id del producto como parámetro
+      window.location.href = `product-info.html?id=${productId}`;
+    });
   });
 });

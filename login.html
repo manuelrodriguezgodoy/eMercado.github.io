@@ -2,15 +2,19 @@
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" type="text/css" href="css/login.css" />
-    <link rel="stylesheet" href="css/usuario-logueado-nav.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap"
+      rel="stylesheet" />
     <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
   </head>
 
@@ -21,11 +25,20 @@
           <h1>Log in</h1>
           <div class="form-container">
             <div class="formulario">
-              <input class="form-input" type="email" name="correo" required id="mailuser" placeholder="Email address" />
-              <input class="form-input" type="password" name="password" id="passworduser" required placeholder="Password" />
+              <input class="form-input" type="email" name="correo" required
+                id="mailuser" placeholder="Email address" />
+              <div class="contraseña-container">
+                <div class="contraseña-input">
+                  <input class="form-input" type="password" name="password"
+                    id="passwordUser" required placeholder="Password" />
+                  <button class="form-bottom" id="mostrarContraseña">👁️</button>
+                </div>
+              </div>
               <div class="form-check">
-                <input type="checkbox" class="checkbox-recordarme" id="recordarme" />
-                <label class="form-check-label" for="recordarme">Recordarme</label>
+                <input type="checkbox" class="checkbox-recordarme"
+                  id="recordarme" />
+                <label class="form-check-label" for="recordarme">Recordar mi
+                  mail</label>
               </div>
               <button id="loginbutton">Login</button>
             </div>

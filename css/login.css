@@ -4,7 +4,7 @@
     font-family: 'Merriweather', serif;
 }
 body{
-    background-image: url(../banner.jpg);
+    background-image: url(../img/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -66,9 +66,35 @@ font-weight: bold;
     border-color: rgb(148, 219, 238);
     outline: none;
     margin-left: 20px;
-    margin-right: 20px;
 }
 
 .form-check-label{
     font-size: 11px;
+}
+
+.contraseña-container {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+
+.contraseña-input {
+    position: relative;
+}
+
+#passwordUser {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#mostrarContraseña {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-style:outset;
+    cursor: pointer;
 }
