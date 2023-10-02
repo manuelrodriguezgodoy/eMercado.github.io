@@ -2,6 +2,15 @@
 #login-nav-li {
   height: 40px;
   overflow: hidden;
+  margin-left: -230px;
+}
+
+/* La propiedad anterior de margen no se aplica en pantallas pequeñas, ya que si lo hace
+el elemento se sale de vista en la pantalla */
+@media screen and (max-width: 767px) {
+  #login-nav-li {
+    margin-left: 0;
+  }
 }
 
 #login-nav-li img{
@@ -21,11 +30,11 @@
   top: 48px;
   right: 8%;
   width: 300px;
-  height: 118px;
+  height: 200px;
   border-radius: 6px;
   background-color: white;
-  border: 1px solid black;
   z-index: 10;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
 }
 
 #login-foto-perfil-usuario {
@@ -44,6 +53,10 @@
   border-radius: 50%;
   cursor: pointer;
   z-index: 1;
+  border-top: none;
+  border-left: 2px solid #c7c7c7;
+  border-right: 2px solid #c7c7c7;
+  border-bottom: 2px solid #c7c7c7;
 }
 
 #login-cambiar-icono-btn i {
@@ -71,13 +84,17 @@
   top: 70px;
   left: 120px;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 #login-logout-btn {
   position: absolute;
-  top: 70px;
-  left: 220px;
+  top: 150px;
+  left: 120px;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 /* BANDEJA DE ICONOS */
@@ -127,4 +144,52 @@
 .opcion-icono img{
   margin: 0 5px;
   width: 50px;
+}
+
+/* Boton modo oscuro */
+.modoOscuroBtn {
+  position: absolute;
+    top: 2px;
+    left: 260px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/modo-oscuro.png);
+    background-size: cover;
+    background-color: transparent;
+    border-top: none;
+    border-left: 2px solid #c7c7c7;
+    border-right: 2px solid #c7c7c7;
+    border-bottom: 2px solid #c7c7c7;
+}
+
+/* Quitar la decoración del <a> botones perfil */
+#btn-edit-perfil, #btn-mi-carrito{
+  text-decoration: none;
+  color: black;
+}
+
+/* Botón mi carrito dentro de cajita perfil*/
+#mi-carrito-btn {
+  position: absolute;
+  top: 110px;
+  left: 120px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* Hover botones dentro de cajita perfil*/
+#login-edit-perfil-btn:hover, #mi-carrito-btn:hover, #login-logout-btn:hover {
+  border-bottom: 2px solid #c7c7c7;
+  padding-bottom: 5px;
+  transition: all 0.2s ease;
+}
+
+.modoOscuroBtn:hover, #login-cambiar-icono-btn:hover {
+  border: 2px solid #c7c7c7;
+  padding-bottom: 5px;
+  line-height: normal;
+  transition: all 0.2s ease;
 }

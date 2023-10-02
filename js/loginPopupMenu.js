@@ -26,50 +26,55 @@ document.addEventListener("DOMContentLoaded", () => {
     <button id="login-cambiar-icono-btn"><i class="fa fa-pencil-alt"></i></button>
     <h2 id="login-nombre-usuario">${userName}</h2>
     <h3 id="login-email-usuario">${userEmail}</h3>
-    <button id="login-edit-perfil-btn">Editar Perfil</button>
-    <button id="login-logout-btn">Log Out</button>
+    <button id="login-edit-perfil-btn"><a class="mo-texto-negro" href="my-profile.html" id="btn-edit-perfil">Editar Perfil<a></button>
+    <button id="mi-carrito-btn"><a class="mo-texto-negro" href="cart.html" id="btn-mi-carrito">Mi carrito<a></button>
+    <button id="login-logout-btn">Salir</button>
+    <button id="btn-oscuro" class="modoOscuroBtn"></button>
   `;
 
   // Crear menu cambio foto perfil
   const fotoPerfilMenu = document.createElement("div");
   fotoPerfilMenu.id = "menu-cambiar-icono-wrap";
-  fotoPerfilMenu.innerHTML = `
-  <div id="menu-cambiar-icono-container">
-    <h2 id="menu-cambiar-icono-titulo">Elije un nuevo icono</h2>
-    <div id="menu-cambiar-icono-opciones">
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre_(1).png">
-        <img src="../img/iconos_perfil/hombre_(1).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre_(2).png">
-        <img src="../img/iconos_perfil/hombre_(2).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre_(3).png">
-        <img src="../img/iconos_perfil/hombre_(3).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre.png">
-        <img src="../img/iconos_perfil/hombre.png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/usuario.png">
-        <img src="../img/iconos_perfil/usuario.png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer_(1).png">
-        <img src="../img/iconos_perfil/mujer_(1).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer_(2).png">
-        <img src="../img/iconos_perfil/mujer_(2).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer_(3).png">
-        <img src="../img/iconos_perfil/mujer_(3).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer.png">
-        <img src="../img/iconos_perfil/mujer.png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/jugador.png">
-        <img src="../img/iconos_perfil/jugador.png" />
-      </button>
-    </div>
-  </div>
-  `;
+
+  let cambiarIconoContainer = document.createElement("div");
+  cambiarIconoContainer.id = "menu-cambiar-icono-container";
+
+  let cambiarIconoTitulo = document.createElement("h2");
+  cambiarIconoTitulo.id = "menu-cambiar-icono-titulo";
+  cambiarIconoTitulo.innerText = "Elije un nuevo icono";
+
+  let cambiarIconoOpciones = document.createElement("div");
+  cambiarIconoOpciones.id = "menu-cambiar-icono-opciones";
+
+  cambiarIconoContainer.appendChild(cambiarIconoTitulo);
+  cambiarIconoContainer.appendChild(cambiarIconoOpciones);
+
+  fotoPerfilMenu.appendChild(cambiarIconoContainer);
+
+  let fotoDefaultArray = [
+    "hombre_(1).png",
+    "hombre_(2).png",
+    "hombre_(3).png",
+    "hombre.png",
+    "usuario.png",
+    "mujer_(1).png",
+    "mujer_(2).png",
+    "mujer_(3).png",
+    "mujer.png",
+    "jugador.png",
+  ];
+
+  fotoDefaultArray.forEach((element) => {
+    let iconButton = document.createElement("button");
+    let iconImg = document.createElement("img");
+    iconButton.classList.add("opcion-icono");
+    iconButton.setAttribute("data-icon", `./img/iconos_perfil/${element}`);
+    iconImg.src = `./img/iconos_perfil/${element}`;
+
+    iconButton.appendChild(iconImg);
+
+    cambiarIconoOpciones.appendChild(iconButton);
+  });
 
   //* Agregar elemento nav a navbar
   const navbar = document.getElementById("navlist");
@@ -123,5 +128,41 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("email");
     location.reload();
+  });
+});
+
+//MODO OSCURO
+document.addEventListener("DOMContentLoaded", () => {
+  let modoOscuroActivado = localStorage.getItem("modoOscuro") === "true";
+
+  const modoOscuroBoton = document.getElementById("btn-oscuro");
+  const body = document.body;
+
+  function activarModoOscuro() {
+    body.id = "modo-oscuro";
+    modoOscuroActivado = true;
+
+    localStorage.setItem("modoOscuro", "true");
+  }
+
+  function desactivarModoOscuro() {
+    body.id = "modo-claro";
+    modoOscuroActivado = false;
+
+    localStorage.setItem("modoOscuro", "false");
+  }
+
+  if (modoOscuroActivado) {
+    activarModoOscuro();
+  } else {
+    desactivarModoOscuro();
+  }
+
+  modoOscuroBoton.addEventListener("click", () => {
+    if (modoOscuroActivado) {
+      desactivarModoOscuro();
+    } else {
+      activarModoOscuro();
+    }
   });
 });

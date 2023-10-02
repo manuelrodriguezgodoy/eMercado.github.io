@@ -23,45 +23,44 @@ const cargarInfoProducto = (product, productCategoryName) => {
   categoriaProducto.appendChild(categoriaProductoText);
   cantidadProducto.appendChild(cantidadProductoText);
   //Muestra las imagenes relacionadas con el producto (son 4 imagenes por producto por eso i=1; i<5)
-    // Función para cambiar la imagen actual del carrusel
-    let intervalo = false
+  // Función para cambiar la imagen actual del carrusel
+  let intervalo = false;
 
-    function cambiarImagenCarrusel() {
-      let imagenActual = 1; // Inicialmente, muestra la primera imagen
-  
-      return function () {
-        // Elimina todas las imágenes actuales del carrusel
-        carruselProduct.innerHTML = '';
-  
-        // Crea una nueva imagen y la agrega al carrusel
-        const nuevaImagen = document.createElement("img");
-        nuevaImagen.classList.add("image-producto");
-        nuevaImagen.classList.add("card-img-top");
-        nuevaImagen.src = `/img/prod${product.id}_${imagenActual}.jpg`;
-        carruselProduct.appendChild(nuevaImagen);
-  
-        // Incrementa las imagenes y al llegar a la última regresa a la 1ra
-        imagenActual++;
-        if (imagenActual > 4) {
-          imagenActual = 1;
-        }
-      };
-    }
-  
-    // Crea una función para cambiar la imagen
-  
-    const cambiarImagen = cambiarImagenCarrusel();
-  
-  
-    // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
-    if (!intervalo) {
-      cambiarImagen();
-      intervalo = true
-    }
-  
-    setInterval(() => {
-      cambiarImagen()
-    }, 3500)
+  function cambiarImagenCarrusel() {
+    let imagenActual = 1; // Inicialmente, muestra la primera imagen
+
+    return function () {
+      // Elimina todas las imágenes actuales del carrusel
+      carruselProduct.innerHTML = "";
+
+      // Crea una nueva imagen y la agrega al carrusel
+      const nuevaImagen = document.createElement("img");
+      nuevaImagen.classList.add("image-producto");
+      nuevaImagen.classList.add("card-img-top");
+      nuevaImagen.src = `/img/prod${product.id}_${imagenActual}.jpg`;
+      carruselProduct.appendChild(nuevaImagen);
+
+      // Incrementa las imagenes y al llegar a la última regresa a la 1ra
+      imagenActual++;
+      if (imagenActual > 4) {
+        imagenActual = 1;
+      }
+    };
+  }
+
+  // Crea una función para cambiar la imagen
+
+  const cambiarImagen = cambiarImagenCarrusel();
+
+  // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
+  if (!intervalo) {
+    cambiarImagen();
+    intervalo = true;
+  }
+
+  setInterval(() => {
+    cambiarImagen();
+  }, 3500);
 };
 
 const cargarComentariosProducto = async (product) => {
@@ -70,12 +69,12 @@ const cargarComentariosProducto = async (product) => {
   const response = await fetch(baseCommentUrl);
   if (!response.ok)
     return console.error("Something went wrong when retrieving the comments");
-    const comments = await response.json();
+  const comments = await response.json();
 
-    comments.forEach((comment) => {
-
+  comments.forEach((comment) => {
     const divComment = document.createElement("div");
     divComment.classList.add("wrapper-comentario");
+    divComment.classList.add("fondo-modo-oscuro");
 
     const comentarioHeader = document.createElement("p");
     comentarioHeader.classList.add("headerComentario");
@@ -84,10 +83,10 @@ const cargarComentariosProducto = async (product) => {
 
     const user = document.createElement("span");
     user.classList.add("user-comentario");
-    
+
     const dateTime = document.createElement("span");
-    dateTime.classList.add("date-time")
-    
+    dateTime.classList.add("date-time");
+
     const description = document.createElement("span");
     const userText = document.createTextNode(comment.user);
     const dateTimeText = document.createTextNode(comment.dateTime);
@@ -102,20 +101,20 @@ const cargarComentariosProducto = async (product) => {
 
     //Barra2
     const BarraSeparacion2 = document.createElement("span");
-    BarraSeparacion2.innerHTML = ' '
-    scoreStar.appendChild(BarraSeparacion2)
-    
-    //Logica para que aparezcan las estrellas 
+    BarraSeparacion2.innerHTML = " ";
+    scoreStar.appendChild(BarraSeparacion2);
+
+    //Logica para que aparezcan las estrellas
     for (let i = 0; i < 5; i++) {
       if (i < comment.score) {
-        const scoreStarText = document.createElement("span");  
-        scoreStarText.innerHTML = '&#9733';
-        scoreStarText.innerHTML = '&#9733';
+        const scoreStarText = document.createElement("span");
+        scoreStarText.innerHTML = "&#9733";
+        scoreStarText.innerHTML = "&#9733";
         scoreStarText.classList.add("star-comment");
         scoreStar.appendChild(scoreStarText);
       } else {
         const scoreStarText = document.createElement("span");
-        scoreStarText.innerHTML = '&#9734';
+        scoreStarText.innerHTML = "&#9734";
         scoreStarText.classList.add("star-comment");
         scoreStar.appendChild(scoreStarText);
       }
@@ -139,7 +138,78 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Se crean const que traen info del localStorage(producto que se clickeo y su nombre de categoria)
   const product = JSON.parse(localStorage.getItem("productoClickeado"));
   const productCategoryName = localStorage.getItem("catName");
+  let catURL = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
+    "catID"
+  )}.json`; //json con productos de la misma categoria
+  let catData = await getJSONData(catURL);
+  let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`;
+  let productfetch = await getJSONData(productURL);
+  let relatedProductsDiv = document.getElementById("productosSimilares");
+
+  //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
+  let productsMenosElActual = [];
+  catData.data.products.forEach((element) => {
+    if (element.id !== product.id) {
+      productsMenosElActual.push(element);
+    }
+  });
+  // console.log(productsMenosElActual);
+  //fin del bloque
+
   cargarInfoProducto(product, productCategoryName);
   await cargarComentariosProducto(product);
-});
 
+  //hago un fetch similar a el de products.js para conseguir los elementos relacionados
+
+  let showProducts = [...productfetch.data.relatedProducts]; //array de 2 productos relacionados
+  console.log(productfetch.data.relatedProducts);
+  console.log(showProducts);
+
+  //function en init
+
+  if (showProducts == []) {
+    console.log("No hay productos relacionados");
+  } else {
+    console.log(showProducts);
+    showProducts.forEach((element) => {
+      let colmd = document.createElement("div");
+      colmd.classList.add("col-md-6");
+
+      let productoRelacionado = document.createElement("div");
+      productoRelacionado.classList.add("card");
+      productoRelacionado.classList.add("related-product");
+
+      let productBody = document.createElement("div");
+      productBody.classList.add("card-body");
+
+      let productImg = document.createElement("img");
+      productImg.src = element.image;
+      productImg.className = "card-img-top";
+
+      let productName = document.createElement("h5");
+      productName.classList.add("card-title");
+      productName.classList.add("texto-modo-oscuro");
+      productName.textContent = element.name;
+      productBody.appendChild(productName);
+
+      let productDescription = document.createElement("p");
+      productDescription.classList.add("card-text");
+      productDescription.textContent = element.description;
+      productBody.appendChild(productDescription);
+
+      productoRelacionado.appendChild(productImg);
+      productoRelacionado.appendChild(productBody);
+      colmd.appendChild(productoRelacionado);
+      relatedProductsDiv.appendChild(colmd);
+
+      productoRelacionado.addEventListener("click", async () => {
+        productObject = await getJSONData(`https://japceibal.github.io/emercado-api/products/${element.id}.json`);
+        console.log(productObject)
+        localStorage.setItem("productoClickeado", JSON.stringify(await productObject.data));
+        window.location.href = "product-info.html"
+
+        
+      });
+    });
+  }
+});

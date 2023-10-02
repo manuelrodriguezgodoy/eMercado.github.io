@@ -198,7 +198,7 @@ body {
   padding: 0 10px 0 5px;
   border: 1px solid gray;
   border-radius: 0 20px 20px 0;
-  background-color: #bbb;
+  background-color: #bbd0ff;
 }
 
 /* Orden */
@@ -208,7 +208,7 @@ body {
   margin: auto;
   margin-top: 10px;
   border-radius: 20px;
-  background-color: #ccc;
+  background-color: #b8c0ff;
   overflow: hidden;
   font-size: 0; /*! Importante, sino aparecen espacios entre los botones*/
   /* Para cambiar font-size cambiar el de .prod-radio-label */
@@ -221,20 +221,20 @@ body {
 .prod-radio-label {
   display: inline-block;
   padding: 4px 8px;
-  color: black;
+  color: white;
   cursor: pointer;
   font-size: 16px;
 }
 
 .prod-radio-label:hover {
   color: black;
-  background-color: darkgray;
+  background-color: #bbd0ff;
   cursor: pointer;
 }
 
 .prod-radio:checked + .prod-radio-label {
   color: black;
-  background-color: gray;
+  background-color: #bbd0ff;
   cursor: pointer;
 }
 
@@ -251,6 +251,11 @@ body {
 
 #filtro-precio-btn {
   margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: white;
+  background: rgb(255, 177, 255);
+  background: linear-gradient(90deg, rgba(255, 177, 255, 1) 0%, rgba(218, 165, 255, 1) 50%, rgba(168, 142, 255, 1) 100%);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Quitar X de buscador */
@@ -270,3 +275,4 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
+

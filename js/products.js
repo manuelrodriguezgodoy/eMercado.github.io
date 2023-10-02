@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="product-gradient"></div>
           <p class="precio-producto">$${product.cost} ${product.currency}</p>
           <p class="descripcion-producto">${product.description}</p>
-          <button class="boton-producto" data-id="${product.id}">Ver Producto</button>
+          <button class="boton-producto" data-id="${product.id}">Comprar</button>
           <p class="vendidos-producto">Vendidos: ${product.soldCount}</p>
           `;
 
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("busqueda-input");
   const botonBorrar = document.getElementById("borrar-filtros-btn");
 
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
   botonBorrar.addEventListener("click", () => {
     input.value = ""; // Borra el contenido del campo de búsqueda
   });
-});
+});*/
 
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".boton-producto");

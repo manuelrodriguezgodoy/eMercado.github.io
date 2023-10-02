@@ -14,6 +14,58 @@
   --light-blue-2: #afc9ff;
 }
 
+#modo-oscuro {
+  background-color: #000000;
+}
+#modo-oscuro .texto-modo-oscuro{
+  color: white;
+}
+#modo-oscuro .fondo-modo-oscuro{
+  background-color: #ffffffe9;
+}
+#modo-oscuro .img-encabezado{
+  background-image: url(../img/banner_categories_products_modoOscuro.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
+  padding-left: 10%;
+}
+
+#modo-oscuro .product-item{
+  background-color: #1c1c1cc2 !important;
+}
+#modo-oscuro .album{
+  background-color: #000000c2 !important;
+}
+#modo-oscuro .row{
+  padding-top: 20px;
+  background-color: #000000c2 !important;
+}
+#modo-oscuro .row *{
+  background-color: #1c1c1cc2 !important;
+}
+#modo-oscuro .card{
+  background-color: #000000c2 !important;
+}
+#modo-oscuro .card p{
+  color: white;
+}
+#modo-oscuro .product-item p{
+  color: white;
+}
+#modo-oscuro footer{
+  background-color: #1c1c1cc2;
+  color: white;
+}
+#modo-oscuro a {
+  color: #fcfcfc;
+}
+
+#modo-oscuro .mo-texto-negro {
+  color: black !important;
+} 
+
+
 .pb-5 {
   padding-bottom: 20px !important;
 }

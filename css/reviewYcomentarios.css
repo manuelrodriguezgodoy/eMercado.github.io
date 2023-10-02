@@ -44,15 +44,39 @@
     margin-left: 2%;
 }
 
+/* Caja donde se encuentran los comentarios */
 #comentarios {
     /* background-color: #e7c6ffad; */
     margin: 2%;
     border-radius: 4%;
     padding: 1%;
-    max-height: 800px; /* Establece la altura máxima deseada */
-    overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
+    max-height: 800px; 
+    /* overflow-y: auto;  */
     padding: 10px; /* Espaciado interior para los comentarios */
+    height: 400px;
+    width: 100%;
     overflow-x: hidden;
+    /* position: relative;s
+    right: 180px; */
+}
+
+/* Toda la caja con respecto a escribir el comentario */
+#nuevoComentario {
+    margin-left: 3%;
+    margin-bottom: 1%;
+    /* position: relative;
+    top: 68px; */
+}
+
+/* Caja donde uno escribe el comentario */
+.commentInput{
+    border-radius: 6px;
+    width: 48rem;
+    height: 10rem;
+    background-color: #ebebeb;
+    border: none;
+    padding: 5px;
+   
 }
 
 .comentarios-h2{
@@ -61,17 +85,11 @@
 }
 
 .comentar-h2{
-    padding: 10px;
+    /* padding: 10px; */
     position: relative;
-    right: 10px;
+    bottom: 12px;
 }
 
-#nuevoComentario {
-    margin-left: 3%;
-    margin-bottom: 1%;
-    position: relative;
-    left: 25px;
-}
 
 #nombreProduct {
     margin-left: 1%;
@@ -85,21 +103,12 @@
     font-weight: bold;
 }
 
-.commentInput{
-    border-radius: 6px;
-    width: 40rem;
-    height: 10rem;
-    background-color: #ebebeb;
-    border: none;
-    padding: 5px;
-}
-
 .boton-enviar-comentarios{
     background-color: antiquewhite;
     border: none;
     border-radius: 5px;
-    height: 30px;
-    width: 90px;
+    height: 35px;
+    width: 100px;
     color: white;
     background-color: #fa7268;
 }
@@ -130,4 +139,15 @@
     color: #8e8e8e;
 }
 
+.comment-box {
+    margin-right: 50px;
+    /* display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    justify-content:space-evenly; */
+}
 
+.related-product :hover{
+    cursor: pointer;
+
+}

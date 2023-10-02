@@ -15,7 +15,7 @@ const hideSpinner = () => {
 //Obtener los productos y categorias del json
 const getJSONData = async (url) => {
   const result = { status: "ok", data: null };
-  showSpinner();
+  
 
   //Se hace un fetch que hace un pedido de informacion
   try {
@@ -31,8 +31,6 @@ const getJSONData = async (url) => {
   } catch (error) {
     result.status = "error";
     result.data = error;
-  } finally {
-    hideSpinner();
   }
 
   return result;
@@ -57,3 +55,24 @@ getJSONData(PUBLISH_PRODUCT_URL)
   .catch((error) => {
     console.error("Error al obtener datos de publicación de productos:", error);
   });
+
+
+  /*
+  Esta funcion la hice porque necesitaba una forma de mostrar 3 productos recomendados en la parte de abajo de una pagina y me parecio util
+  tenerla acá para futuros usos. Lo que hace es que agarra un sourceArray que seguramente tenga varios datos y agrega
+  datos aleatorios de ese array a un nuevo array (en el caso original vacio pero puede tener items previos).
+  placeholderArray se crea en la funcion y es una copia del sourceArray, la diferencia es que se le quitan los items ya seleccionados
+  para evitar que aparezcan dos veces, así no afecta el sourceArray en caso de que se vaya a usar dsp para otra cosa
+  */
+  function agregarAlArraySiExiste(sourceArray, newArray, maxElements){
+    if (sourceArray.length>0){
+      let placeholderArray = [...sourceArray];
+      for(let i=0; i<maxElements && i<sourceArray.length; i++){
+        let randomNumber = Math.floor(Math.random()*placeholderArray.length);
+        newArray.push(placeholderArray[randomNumber]);
+        placeholderArray.splice(randomNumber, 1);
+      }
+
+      
+    }
+  }

@@ -93,6 +93,40 @@ let allStars = document.querySelectorAll('.star');
 
         
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         // //Logica para agregar los comentarios, las estrellas y fecha
         // function agregarComentario() {
         //     // Obtener el texto del comentario ingresado por el usuario
