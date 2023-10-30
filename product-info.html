@@ -53,9 +53,28 @@
       <main>
         <div class="x" id="productInfo">
           <h2 class="nombre-product texto-modo-oscuro" id="nombreProduct"></h2>
+          <button class = "btn btn-success" id="agregarAlCarritoButton">Agregar al carrito</button>
           <hr />
 
-          <div class="col-xxl-5 col-xl-5 col-lg-4 col-md-12 col-sm-12"
+          
+
+          <!-- carrusel-automatico -->
+          <!-- <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-12 col-sm-12"
+            id="fotosDeProducto">
+            <div class="card border-0 carrusel-oscuro">
+              <ul class="carrusel-producto" id="carruselProducto"
+                style="width: 45vw;"></ul>
+            </div>
+          </div> -->
+          
+         
+      </main>
+
+
+       <!-- Carrusel y info del producto -->
+       <!-- info producto -->
+      <div class="container carru-cont">
+       <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-12 col-sm-12"
             id="datosDeProducto">
             <div class="card">
               <div class="card-body">
@@ -79,18 +98,50 @@
               </div>
             </div>
           </div>
-
-          <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-12 col-sm-12"
-            id="fotosDeProducto">
-            <div class="card border-0 carrusel-oscuro">
-              <ul class="carrusel-producto" id="carruselProducto"
-                style="width: 45vw;"></ul>
+          <!-- carrusel -->
+       <div class="containerCarrusel">
+        <div id="carouselExampleDark" class="carousel carousel-white slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+          
+          <div class="carousel-inner">
+            <div class="carousel-item active contImg" data-bs-interval="10000">
+              <img src="./img/car4.jpg" class="d-block w-100 carouselimg" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+            <div class="carousel-item contImg" data-bs-interval="2000">
+              <img src="./img/car4.jpg" class="d-block w-100 carouselimg" alt="...">
+            </div>
+            <div class="carousel-item contImg">
+              <img src="./img/car4.jpg" class="d-block w-100 carouselimg" alt="...">
+            </div>
+            <div class="carousel-item contImg">
+              <img src="./img/car4.jpg" class="d-block w-100 carouselimg" alt="...">
             </div>
           </div>
-
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-      </main>
+          </div>
+        </div>
+      </div>
+  
+      
 
+        
+
+      <!-- login-popup -->
     </div>
     <div id="loginPopup" class="popup">
       <div class="popup-content">
@@ -100,6 +151,7 @@
       </div>
     </div>
 
+    <div class="container-comentarios">
     <div class="comment-box">
       <div id="comentarios">
         <h2 class="comentarios-h2 texto-modo-oscuro">Comentarios</h2>
@@ -107,9 +159,11 @@
       </div>
 
       <div id="nuevoComentario">
-        <h2 class="texto-modo-oscuro">Comentar</h2>
-        <textarea id="commentInput" class="commentInput"
-          placeholder="Dejanos un comentario!" rows="4" cols="30"></textarea>
+        <!-- <h2 class="texto-modo-oscuro">Comentar</h2> -->
+        <!-- <textarea id="commentInput" class="col-xxl-5 col-xl-5 col-lg-4 col-md-12 col-sm-12"
+          placeholder="Dejanos un comentario!" rows="4" cols="30"></textarea> -->
+          <textarea class="form-control" id="commentInput" placeholder="Dejanos un comentario!" id="floatingTextarea"></textarea>
+
         <div>
           <label for="countrySelect" class="estrellas-label">Estrellas: <span
               id="starRating">0</span></label>
@@ -126,9 +180,10 @@
           id="botonDeComentario">Publicar</button>
       </div>
     </div>
+  </div>
 
     <!--carousel de productos relacionados-->
-    <div class="container">
+    <div class="container productos-relacionados">
       <h3 class="texto-modo-oscuro">Algunos Productos similares</h3>
       <div class="row" id="productosSimilares">
 
