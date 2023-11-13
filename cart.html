@@ -15,10 +15,14 @@
     <link href="css/categories.css" rel="stylesheet" />
     <link href="css/loginPopupMenu.css" rel="stylesheet" />
     <link href="css/cart.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
 
   <body id="modo-claro">
@@ -46,48 +50,55 @@
           </div>
         </div>
       </nav>
-      <div class="alert alert-success alert-dismissible fade show d-none" role="alert" id="success-alert">
+      <div class="alert alert-success alert-dismissible fade show d-none"
+        role="alert" id="success-alert">
         <h4 class="alert-heading">¡Compra exitosa!</h4>
         <p>Gracias por tu compra. Tu pedido ha sido procesado con éxito.</p>
         <hr>
         <button type="button" class="btn btn-success" id="accept-button">Aceptar</button>
       </div>
-        <!-- Modal de Bootstrap -->
-        <div class="modal fade" id="customModalErrorValidaciones" tabindex="-1" role="dialog" aria-labelledby="customModalErrorLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="customModalErrorLabel">Error de Validación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Por favor, complete todos los campos.
-              </div>
-              <div class="modal-footer">
-              </div>
+      <!-- Modal de Bootstrap -->
+      <div class="modal fade" id="customModalErrorValidaciones" tabindex="-1"
+        role="dialog" aria-labelledby="customModalErrorLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="customModalErrorLabel">Error de
+                Validación</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Por favor, complete todos los campos.
+            </div>
+            <div class="modal-footer">
             </div>
           </div>
-        </div>  
-        <div class="modal fade" id="customModalErrorProductos" tabindex="-1" role="dialog" aria-labelledby="customModalErrorLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="customModalErrorLabel">Error de Validación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Por favor, verifique el contenido del carrito.
-              </div>
-              <div class="modal-footer">
-              </div>
+        </div>
+      </div>
+      <div class="modal fade" id="customModalErrorProductos" tabindex="-1"
+        role="dialog" aria-labelledby="customModalErrorLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="customModalErrorLabel">Error de
+                Validación</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Por favor, verifique el contenido del carrito.
+            </div>
+            <div class="modal-footer">
             </div>
           </div>
-        </div>          
-  
+        </div>
+      </div>
+
       <div class="img-encabezado-cart"></div>
       <main class="pb-5 product-container">
         <div class="cart-envio-container">
@@ -177,82 +188,120 @@
                   </li>
                 </ul>
 
-                <a href="#modalMetodoPago" data-toggle="modal" class="btn btn-primary">Seleccionar Método de Pago</a>
-                
+                <a href="#modalMetodoPago" data-toggle="modal"
+                  class="btn btn-primary">Seleccionar Método de Pago</a>
+
                 <!-- Elemento para mostrar el mensaje de error -->
                 <div id="metodoPagoError" class="invalid-feedback">
                   Por favor, selecciona un método de pago.
                 </div>
 
-                <div class="modal fade" id="modalMetodoPago" tabindex="-1" role="dialog" aria-labelledby="modalMetodoPagoLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalMetodoPagoLabel">Seleccionar Método de Pago</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                <div class="modal fade" id="modalMetodoPago" tabindex="-1"
+                  role="dialog" aria-labelledby="modalMetodoPagoLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalMetodoPagoLabel">Seleccionar
+                          Método de Pago</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                          aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="needs-validation" novalidate>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input id="inputPagoTarjeta"
+                                for="inputPagoTarjeta" class="form-check-input"
+                                type="radio" name="metodoPago" value="tarjeta"
+                                required> Tarjeta de Crédito
+                            </label>
+                            <input id="inputPagoTarjeta2" type="text"
+                              name="tarjetaCuenta"
+                              placeholder="Número de tarjeta"
+                              class="form-control input-pago" required>
+                            <input id="inputPagoTarjeta3" type="number"
+                              name="tarjetaCuenta" placeholder="Código de seg."
+                              class="form-control input-pago" required>
+                            <input id="inputPagoTarjeta4" type="date"
+                              name="tarjetaCuenta"
+                              placeholder="Fecha de vencimiento"
+                              class="form-control input-pago" required>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input id="inputPagoPaypal" for="inputPagoPaypal"
+                                class="form-check-input" type="radio"
+                                name="metodoPago" value="paypal"> PayPal
+                            </label>
+                            <input id="inputPagoPaypal2" type="text"
+                              name="paypalCuenta"
+                              placeholder="Correo electrónico de PayPal"
+                              class="form-control input-pago" required>
+                          </div>
+                          <br>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input id="inputPagoTransferencia"
+                                for="inputPagoTransferencia"
+                                class="form-check-input" type="radio"
+                                name="metodoPago" value="transferencia">
+                              Transferencia Bancaria
+                            </label>
+                            <input id="inputPagoTransferencia2" type="text"
+                              name="transferenciaCuenta"
+                              placeholder="Número de cuenta bancaria"
+                              class="form-control input-pago" required>
+                          </div>
+                          <br>
+                          <div>
+                            <h5>
+                              Red de Cobranza
+                            </h5>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input input-cobranza"
+                                  type="radio" name="metodoPago" value="abitab">
+                                Abitab
+                              </label>
+                              <input id="inputPagoRedes1" type="number"
+                                name="cedulaRedes"
+                                placeholder="Número de cédula"
+                                class="form-control input-pago" required>
                             </div>
-                            <div class="modal-body">
-                                <form class="needs-validation" novalidate>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input id="inputPagoTarjeta" for="inputPagoTarjeta" class="form-check-input" type="radio" name="metodoPago" value="tarjeta" required> Tarjeta de Crédito
-                                        </label>
-                                        <input id="inputPagoTarjeta2" type="text" name="tarjetaCuenta" placeholder="Número de tarjeta" class="form-control input-pago" required>
-                                        <input id="inputPagoTarjeta3" type="number" name="tarjetaCuenta" placeholder="Código de seg." class="form-control input-pago" required>
-                                        <input id="inputPagoTarjeta4" type="date" name="tarjetaCuenta" placeholder="Fecha de vencimiento" class="form-control input-pago" required>
-                                    </div>
-                                    <br>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input id="inputPagoPaypal" for="inputPagoPaypal" class="form-check-input" type="radio" name="metodoPago" value="paypal"> PayPal
-                                        </label>
-                                        <input id="inputPagoPaypal2" type="text" name="paypalCuenta" placeholder="Correo electrónico de PayPal" class="form-control input-pago" required>
-                                    </div>
-                                    <br>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input id="inputPagoTransferencia" for="inputPagoTransferencia" class="form-check-input" type="radio" name="metodoPago" value="transferencia"> Transferencia Bancaria
-                                        </label>
-                                        <input id="inputPagoTransferencia2" type="text" name="transferenciaCuenta" placeholder="Número de cuenta bancaria" class="form-control input-pago" required>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <h5>
-                                            Red de Cobranza
-                                        </h5>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input input-cobranza" type="radio" name="metodoPago" value="abitab"> Abitab
-                                            </label>
-                                            <input id="inputPagoRedes1" type="number" name="cedulaRedes" placeholder="Número de cédula" class="form-control input-pago" required>
-                                        </div>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input input-cobranza" type="radio" name="metodoPago" value="redpagos"> Red Pagos
-                                            </label>
-                                            <input id="inputPagoRedes2" type="number" name="cedulaRedes" placeholder="Número de cédula" class="form-control input-pago" required>
-                                        </div>
-                                    </div>
-                                    
-                                </form>
-                                
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input input-cobranza"
+                                  type="radio" name="metodoPago"
+                                  value="redpagos"> Red Pagos
+                              </label>
+                              <input id="inputPagoRedes2" type="number"
+                                name="cedulaRedes"
+                                placeholder="Número de cédula"
+                                class="form-control input-pago" required>
                             </div>
-                            <div class="modal-footer">
-                                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal" id="noGuardarPago">Cerrar</button> ----->
-                                <button type="button" class="btn btn-primary" id="guardarPago">Guardar Método de Pago</button>
-                            </div>
+                          </div>
 
-                        </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal" id="noGuardarPago">Cerrar</button> ----->
+                        <button type="button" class="btn btn-primary"
+                          id="guardarPago">Guardar Método de Pago</button>
+                      </div>
+
                     </div>
+                  </div>
                 </div>
-                
+
                 <button id="finalizarCompra" type="submit"
                   class="btn btn-primary">
                   Finalizar compra
                 </button>
-                
+
                 <div id="alertPlaceHolder">
                   <!-- Contenido de alertas o mensajes -->
                 </div>
@@ -294,9 +343,11 @@
         <script src="https://kit.fontawesome.com/fdc46ffa07.js"
           crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
       </body>
     </html>
