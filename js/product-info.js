@@ -22,46 +22,67 @@ const cargarInfoProducto = (product, productCategoryName) => {
   descripcionProducto.appendChild(descripcionProductoText);
   categoriaProducto.appendChild(categoriaProductoText);
   cantidadProducto.appendChild(cantidadProductoText);
+
   //Muestra las imagenes relacionadas con el producto (son 4 imagenes por producto por eso i=1; i<5)
   // Función para cambiar la imagen actual del carrusel
-  let intervalo = false;
+  // let intervalo = false;
 
-  function cambiarImagenCarrusel() {
-    let imagenActual = 1; // Inicialmente, muestra la primera imagen
+  // function cambiarImagenCarrusel() {
+  //   let imagenActual = 1; // Inicialmente, muestra la primera imagen
 
-    return function () {
-      // Elimina todas las imágenes actuales del carrusel
-      carruselProduct.innerHTML = "";
+  //   return function () {
+  //     // Elimina todas las imágenes actuales del carrusel
+  //     carruselProduct.innerHTML = "";
 
-      // Crea una nueva imagen y la agrega al carrusel
-      const nuevaImagen = document.createElement("img");
-      nuevaImagen.classList.add("image-producto");
-      nuevaImagen.classList.add("card-img-top");
-      nuevaImagen.src = `/img/prod${product.id}_${imagenActual}.jpg`;
-      carruselProduct.appendChild(nuevaImagen);
+  //     // Crea una nueva imagen y la agrega al carrusel
+  //     const nuevaImagen = document.createElement("img");
+  //     nuevaImagen.classList.add("image-producto");
+  //     nuevaImagen.classList.add("card-img-top");
+  //     nuevaImagen.src = `./img/prod${product.id}_${imagenActual}.jpg`;
+  //     carruselProduct.appendChild(nuevaImagen);
 
-      // Incrementa las imagenes y al llegar a la última regresa a la 1ra
-      imagenActual++;
-      if (imagenActual > 4) {
-        imagenActual = 1;
-      }
-    };
-  }
+  //     // Incrementa las imagenes y al llegar a la última regresa a la 1ra
+  //     imagenActual++;
+  //     if (imagenActual > 4) {
+  //       imagenActual = 1;
+  //     }
+  //   };
+  // }
 
-  // Crea una función para cambiar la imagen
+  // // Crea una función para cambiar la imagen
 
-  const cambiarImagen = cambiarImagenCarrusel();
+  // const cambiarImagen = cambiarImagenCarrusel();
 
-  // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
-  if (!intervalo) {
-    cambiarImagen();
-    intervalo = true;
-  }
+  // // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
+  // if (!intervalo) {
+  //   cambiarImagen();
+  //   intervalo = true;
+  // }
 
-  setInterval(() => {
-    cambiarImagen();
-  }, 3500);
+  // setInterval(() => {
+  //   cambiarImagen();
+  // }, 3500);
 };
+
+//Carrusel-slide
+
+// const carouselInner = document.querySelector('.carousel-inner');
+
+// data.forEach((item, index) => {
+//   const carouselItem = document.createElement('div');
+//   carouselItem.classList.add('carousel-item');
+//   if (index === 0) {
+//     carouselItem.classList.add('active');
+//   }
+
+//   const img = document.createElement('img');
+//   img.src =  item.url; // Asigna la URL de la imagen desde los datos de la API
+//   img.classList.add('d-block', 'w-100');
+//   img.alt = '...'; // Puedes asignar una descripción alternativa aquí si es necesario
+
+//   carouselItem.appendChild(img);
+//   carouselInner.appendChild(carouselItem);
+// });
 
 const cargarComentariosProducto = async (product) => {
   if (!product.id) return console.error("the product doesn't have an id");
@@ -138,13 +159,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Se crean const que traen info del localStorage(producto que se clickeo y su nombre de categoria)
   const product = JSON.parse(localStorage.getItem("productoClickeado"));
   const productCategoryName = localStorage.getItem("catName");
-  let catURL = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
-    "catID"
-  )}.json`; //json con productos de la misma categoria
+  let catURL = `http://localhost:3000/cats/${localStorage.getItem("catID")}`; //json con productos de la misma categoria
   let catData = await getJSONData(catURL);
-  let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`;
+  let productURL = `http://localhost:3000/products/${product.id}`;
   let productfetch = await getJSONData(productURL);
   let relatedProductsDiv = document.getElementById("productosSimilares");
+  let agregarButton = document.getElementById("agregarAlCarritoButton");
+
+  //Carrusel-slide, logica para que el carrusel con las flechas funcione
+  let imgCarousel = document.getElementsByClassName("carouselimg");
+
+  for (let i = 0; i < imgCarousel.length; i++) {
+    imgCarousel[i].src = `./img/prod${product.id}_${i + 1}.jpg`;
+  }
 
   //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
   let productsMenosElActual = [];
@@ -203,13 +230,41 @@ document.addEventListener("DOMContentLoaded", async () => {
       relatedProductsDiv.appendChild(colmd);
 
       productoRelacionado.addEventListener("click", async () => {
-        productObject = await getJSONData(`https://japceibal.github.io/emercado-api/products/${element.id}.json`);
-        console.log(productObject)
-        localStorage.setItem("productoClickeado", JSON.stringify(await productObject.data));
-        window.location.href = "product-info.html"
-
-        
+        productObject = await getJSONData(
+          `http://localhost:3000/products/${element.id}`
+        );
+        console.log(productObject);
+        localStorage.setItem(
+          "productoClickeado",
+          JSON.stringify(await productObject.data)
+        );
+        window.location.href = "product-info.html";
       });
     });
   }
+
+  //acá agrega el producto comprado al localstorage
+  agregarButton.addEventListener("click", async () => {
+    let url = 'http://localhost:3000/cartdb'
+
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id: product.id})
+    })
+    
+    /*let productosCarrito =
+      JSON.parse(localStorage.getItem("productosCarrito")) || [];
+    const productId = product.id;*/
+    //productosCarrito = [...productosCarrito, productId];
+    //console.log(productosCarrito, product);
+    if (!productosCarrito.includes(productId)){
+      productosCarrito.push(productId)
+    }
+    //localStorage.setItem("productosCarrito", JSON.stringify(productosCarrito));
+  });
 });

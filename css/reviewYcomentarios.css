@@ -46,36 +46,32 @@
 
 /* Caja donde se encuentran los comentarios */
 #comentarios {
-    /* background-color: #e7c6ffad; */
     margin: 2%;
     border-radius: 4%;
     padding: 1%;
     max-height: 800px; 
-    /* overflow-y: auto;  */
-    padding: 10px; /* Espaciado interior para los comentarios */
+    padding: 10px; 
     height: 400px;
     width: 100%;
     overflow-x: hidden;
-    /* position: relative;s
-    right: 180px; */
 }
 
 /* Toda la caja con respecto a escribir el comentario */
 #nuevoComentario {
     margin-left: 3%;
-    margin-bottom: 1%;
+    margin-bottom: 40px;
     /* position: relative;
     top: 68px; */
 }
 
 /* Caja donde uno escribe el comentario */
-.commentInput{
-    border-radius: 6px;
-    width: 48rem;
-    height: 10rem;
-    background-color: #ebebeb;
-    border: none;
-    padding: 5px;
+#commentInput{
+    /* border-radius: 6px; */
+    /* width: 48rem;*/
+    height: 10rem;  
+    /* background-color: #ebebeb; */
+    /* border: none;
+    padding: 5px; */
    
 }
 
@@ -151,3 +147,10 @@
     cursor: pointer;
 
 }
+
+
+@media (min-width: 1440px) {
+    #datosDeProducto{
+        height: 420px;
+    }
+   }

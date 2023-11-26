@@ -1,5 +1,5 @@
 //Constantes de la api y el .json
-const BASE_URL = "https://japceibal.github.io/emercado-api/";
+const BASE_URL = "http://localhost:3000";
 const EXT_TYPE = ".json";
 
 //Spinner de carga
@@ -37,7 +37,7 @@ const getJSONData = async (url) => {
 };
 
 //Traer las categorias del json
-const CATEGORIES_URL = `${BASE_URL}cats/cat${EXT_TYPE}`;
+const CATEGORIES_URL = `${BASE_URL}/categories`;
 getJSONData(CATEGORIES_URL)
   .then((categoriesData) => {
     console.log(categoriesData);

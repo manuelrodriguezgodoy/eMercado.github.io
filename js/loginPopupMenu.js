@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <button id="btn-oscuro" class="modoOscuroBtn"></button>
   `;
 
-  // Crear menu cambio foto perfil
   const fotoPerfilMenu = document.createElement("div");
   fotoPerfilMenu.id = "menu-cambiar-icono-wrap";
 
@@ -43,11 +42,23 @@ document.addEventListener("DOMContentLoaded", () => {
   cambiarIconoTitulo.id = "menu-cambiar-icono-titulo";
   cambiarIconoTitulo.innerText = "Elije un nuevo icono";
 
+  let opcionesContainer = document.createElement("div");
+
   let cambiarIconoOpciones = document.createElement("div");
   cambiarIconoOpciones.id = "menu-cambiar-icono-opciones";
 
+  //cargar una imagen personalizada
+  let customIconInput = document.createElement("input");
+  customIconInput.type = "file";
+  customIconInput.accept = "image/*"; // Acepta imágenes de cualquier tipo
+  customIconInput.id = "custom-icon-input";
+  customIconInput.addEventListener("change", handleCustomIconUpload);
+
+  opcionesContainer.appendChild(cambiarIconoOpciones);
+  opcionesContainer.appendChild(customIconInput);
+
   cambiarIconoContainer.appendChild(cambiarIconoTitulo);
-  cambiarIconoContainer.appendChild(cambiarIconoOpciones);
+  cambiarIconoContainer.appendChild(opcionesContainer);
 
   fotoPerfilMenu.appendChild(cambiarIconoContainer);
 
@@ -79,38 +90,53 @@ document.addEventListener("DOMContentLoaded", () => {
   //* Agregar elemento nav a navbar
   const navbar = document.getElementById("navlist");
   navbar.appendChild(loginNavElement);
-  // Mostrar menu si se da click
+  // Mostrar menú si se da clic
   loginNavElement.addEventListener("click", (event) => {
     loginMenu.style.display === "block"
       ? (loginMenu.style.display = "none")
       : (loginMenu.style.display = "block");
     event.stopPropagation();
   });
-  // Esconder menu si se da click afuera
+  // Esconder menú si se da clic afuera
   window.addEventListener("click", (event) => {
     if (loginMenu.style.display === "block") {
       loginMenu.style.display = "none";
     }
   });
 
-  //* Agregar elemento menu opciones
+  //* Agregar elemento menú opciones
   document.body.appendChild(loginMenu);
 
-  //* Agregar elemento elegir imagenes
+  //* Agregar elemento elegir imágenes
   const cambiarIconoBtn = document.getElementById("login-cambiar-icono-btn");
   document.body.appendChild(fotoPerfilMenu);
-  // Mostrar menu si se da click
+  // Mostrar menú si se da clic
   cambiarIconoBtn.addEventListener("click", (event) => {
     fotoPerfilMenu.style.display = "block";
     event.stopPropagation();
   });
-  // Esconder menu si se da click afuera
+  // Esconder menú si se da clic afuera
   window.addEventListener("click", (event) => {
     if (fotoPerfilMenu.style.display === "block") {
       fotoPerfilMenu.style.display = "none";
     }
   });
 
+  function handleCustomIconUpload(event) {
+    const customIconFile = event.target.files[0];
+    if (customIconFile) {
+      let reader = new FileReader();
+
+      reader.readAsDataURL(customIconFile);
+
+      reader.onload = () => {
+        let base64Custom = reader.result;
+        console.log(userEmail);
+        localStorage.setItem(`${userEmail}-icon`, base64Custom);
+        window.location.reload();
+      };
+    }
+  }
   // Cambiar foto perfil
   const contenedorImagenes = document.getElementById(
     "menu-cambiar-icono-opciones"
@@ -127,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoutBtn = document.getElementById("login-logout-btn");
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("email");
-    location.reload();
+    window.location.href = "../login.html";
   });
 });
 

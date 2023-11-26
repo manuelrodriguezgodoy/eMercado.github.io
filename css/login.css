@@ -1,94 +1,118 @@
 *{
-    padding: 0;
-    margin: 0;
-    font-family: 'Merriweather', serif;
+    font-family: Raleway;
+}
+.wcome{
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
 }
 body{
     background-image: url(../img/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+#bgLogin {
+    margin: 0;
+    padding: 0;
+    background: url(../img/banner.jpg) no-repeat center top;
+    background-size: cover;
     height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
 }
-.page-wrapper{
-    height: 100%;
-    display: flex;
-    margin-left: 10%;
-    margin-bottom: 7%;
-    align-items: flex-end
+
+
+
+.formulario_login {
+
+    width: 450px;
+    height: 550px;
+    position: absolute;
+    top: 52%;
+    right: 55%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    opacity: 0.9;
+    border-style: solid;
+    border-width: thin;
+    animation-name: loginAnim;
+    animation-duration: 2s;
 }
-.formulario_login{
-    background-color: rgba(255, 255, 255, 0.434);
-    width: 420px;
-    border-radius: 15px;
-    border-style: inset;
-    border-color:  rgba(207, 207, 207, 0.387);
-    padding: 20px;
-    height: 370px;
+    @keyframes loginAnim {
+    from{
+    top: 52%;
+    transform: translate(-50%, -50%);
+    right: 100%;
+     }
+    to{
+    top: 52%;
+    right: 55%;
+    transform: translate(-50%, -50%);   
+     }
+    }
+
+
+.formulario_login label {
+    margin-top: 45px;
+    padding: 0;
+    font-size:20px;
+    display: block;
+    color:white;
 }
-.formulario{
-    display: flex;
-    max-width: 400px;
-    border-radius: 5% ;
-    padding: 30px;
-    flex-direction: column;
-row-gap: 20px;
+.m-3:hover{
+    text-decoration:underline;
+
 }
-.form-container{
-    padding-inline: 10px;
-    width: 100%;
-}
-.form-input{
-    font-size: 14px;
-    font-family:Arial, Helvetica, sans-serif;
-    border-color: rgba(207, 207, 207, 0.387);
-    border-radius: 5px;
-}
-.content-wrapper{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-.formulario_login h1{
-    font-size: 40px;
-text-align: center;
-}
-.formulario_login button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(147, 203, 245);
-font-weight: bold;
-    border-radius: 5px;
-    border-color: rgb(148, 219, 238);
+
+.formulario_login  input[type=text],
+input[type=password] {
+    margin: 8px 0;
     outline: none;
-    margin-left: 20px;
+}
+
+.formulario_login .button {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    padding: 12px 18px;
+    
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 23px;
+    outline: none;
+}
+
+.formulario_login .button:hover {
+    opacity: 0.9;
+    background-color: #51A8D6;
+    color: white;
+    box-shadow: -1px 0px 9px 6px rgba(0, 0, 0, 0.4);
+}
+#h1Product{
+    text-align:center;
+    font-size: 80px;
+    border-bottom-color: solid grey;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 10;
+}
+
+
+
+
+#btnLogin{
+    margin-top: 80px;
 }
 
 .form-check-label{
     font-size: 11px;
 }
 
-.contraseña-container {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-
-.contraseña-input {
-    position: relative;
-}
-
-#passwordUser {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 #mostrarContraseña {
     position: absolute;
@@ -97,4 +121,62 @@ font-weight: bold;
     bottom: 0;
     border-style:outset;
     cursor: pointer;
+}
+
+.btn-input-wrapper{
+    width: 100%;
+    height: fit-content;
+    position: relative;
+}
+
+/*Computadoras*/
+@media (min-width: 769px) {
+
+
+    .formulario_login {
+        width: 450px;
+        height: 550px;
+        background: rgba(184, 149, 203, 0.355);
+        position: absolute;
+        top: 52%;
+        right: 50%;
+        transform: translate(-40%, -50%);
+        box-sizing: border-box;
+        padding: 70px 30px;
+        opacity: 0.9;
+        border: 1px solid transparent;
+        animation-name: loginAnim;
+        animation-duration: 2s;
+    }
+    @keyframes loginAnim {
+        from {
+            top: 52%;
+            transform: translate(-40%, -50%);
+            right: 100%;
+        }
+        to {
+            top: 52%;
+            right: 50%;
+            transform: translate(-40%, -50%);
+        }
+    }
+}
+/*Celulares y Tablets*/
+@media (max-width: 1024px) {
+
+    .formulario_login {
+        margin-top: 50%;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        position: relative;
+        top: initial;
+        right: initial;
+        transform: initial;
+        box-sizing: border-box;
+        padding: 30px;
+        opacity: 0.9;
+        border: 1px solid transparent;
+        animation: none; /* Remove animation on mobile devices */
+    }
 }

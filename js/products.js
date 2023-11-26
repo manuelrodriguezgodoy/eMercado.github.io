@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
+  const url = `http://localhost:3000/cats/${localStorage.getItem(
     "catID"
-  )}.json`;
+  )}`;
   const productList = document.querySelector("#product-list");
   const spanproducts = document.getElementById("categoria-producto");
 

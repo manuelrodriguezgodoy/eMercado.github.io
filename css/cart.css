@@ -1,4 +1,3 @@
-
 .container {
     width: 100%;
     max-width: 2000px;
@@ -7,6 +6,7 @@
 /* Boton carrito */
 .container .btn-menu, .logo {
     margin-top: 10px;
+    align-items: right;
 }
 
 .container .btn-menu label i {
@@ -69,7 +69,7 @@
     float: right;
 }
 
-/* No me acuerdo que hace pero si lo saco la caja no funciona */
+/* No me acuerdo que hace pero si lo saco la caja no funciona, Holi :) esto es para cambiar la posición del menú del carrito que aparece y desaparece segun si lo clickeas o no  */
 #btn-menu:checked ~ .container-menu .cont-menu{
     transform: translateX(0%);
 }
@@ -102,3 +102,132 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.img-encabezado-cart{
+    background-image: url(../img/Carrito_banner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 160px;
+    padding-left: 10%;
+    margin-top: 48px;
+}
+
+#img-cart{
+    width: 100px;
+    max-width: 100%;
+}
+.cantidad{
+    margin-left: 15%;
+    max-width: 35%;
+}
+
+#producto-compra{
+    background-color:  #aab4ff;
+}
+ tbody{
+    border-color: black;
+ }
+ #backtomenu {
+    height: 600px;
+  }
+#lista-producto{ 
+    width: 200px;
+    height: 400px;
+    overflow: auto;
+  }
+
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  .cart-container {
+    width: 60%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-right: 5%;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  .envio-container {
+    width: 40%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.direccion-envio {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tipoEnvio {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.table {
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+}
+
+#lista-productos-compra tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cart-envio-container{
+    width: 100%;
+display: flex;
+justify-content: center;
+}
+.seguir-comprando{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.desgloce-compra{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
+    padding: 1em;
+    background-color: #bbd0ff;
+    border-radius: 10px;
+}
+.mensaje {
+       display: none;
+       background-color: #f2f2f2;
+       border: 1px solid #ddd;
+       padding: 10px;
+       margin-top: 10px;
+       border-radius: 5px;
+   }
+   .titulo-cart {
+       display: flex;
+       align-items: center;
+       margin-left: 25%;
+     }

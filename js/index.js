@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("autos").addEventListener("click", function () {
     localStorage.setItem("catID", 101);
-    localStorage.setItem("catName", "Autos")
+    localStorage.setItem("catName", "Autos");
     window.location = "products.html";
   });
   document.getElementById("juguetes").addEventListener("click", function () {
@@ -15,4 +15,54 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("catName", "Muebles");
     window.location = "products.html";
   });
+  let intervalo = false;
+  const carruselProduct = document.getElementById("carruselProducto");
+
+  function crearCarrusel() {
+
+    
+    for (let i = 1; i <= 4; i++) {
+      //Es necesrio que la imagen esté dentro de un elemento <li>
+      const nuevoLi = document.createElement("li"); 
+
+      const nuevaImagen = document.createElement("img");
+      nuevaImagen.classList.add("card-img-top");
+      nuevaImagen.src = `/img/banners/banner_sales${i}.jpg`;
+
+      nuevoLi.appendChild(nuevaImagen);
+      nuevoLi.id = `banner-${i}`;
+      nuevoLi.classList.add("banner");
+
+      carruselProduct.appendChild(nuevoLi);
+    }
+  }
+
+  let bannerActivo;
+  function cambiarImagenCarrusel() {
+    let imagenActual = 1; // Inicialmente, muestra la primera imagen
+    return function () {
+      bannerActivo = document.getElementById(`banner-${imagenActual}`);
+      // Incrementa las imagenes y al llegar a la última regresa a la 1ra
+      imagenActual++;
+      bannerActivo.classList.add("banner-active");
+      if (imagenActual > 4) {
+        imagenActual = 1;
+      }
+    };
+  }
+  crearCarrusel();
+  // Crea una función para cambiar la imagen
+
+  const cambiarImagen = cambiarImagenCarrusel();
+
+  // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
+  if (!intervalo) {
+    cambiarImagen();
+    intervalo = true;
+  }
+
+  setInterval(() => {
+    bannerActivo.classList.remove("banner-active");
+    cambiarImagen();
+  }, 3500);
 });

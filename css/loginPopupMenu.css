@@ -1,17 +1,9 @@
-/* Navbar li element */
+ /* Navbar li element */
 #login-nav-li {
   height: 40px;
   overflow: hidden;
-  margin-left: -230px;
 }
 
-/* La propiedad anterior de margen no se aplica en pantallas pequeñas, ya que si lo hace
-el elemento se sale de vista en la pantalla */
-@media screen and (max-width: 767px) {
-  #login-nav-li {
-    margin-left: 0;
-  }
-}
 
 #login-nav-li img{
   display: inline-block;
@@ -26,7 +18,7 @@ el elemento se sale de vista en la pantalla */
 /* Login popup menu */
 #login-menu-container {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 48px;
   right: 8%;
   width: 300px;
@@ -35,6 +27,13 @@ el elemento se sale de vista en la pantalla */
   background-color: white;
   z-index: 10;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 995px) {
+  #login-menu-container {
+    left: 50px;
+    top: 245px;
+  }
 }
 
 #login-foto-perfil-usuario {
@@ -113,13 +112,21 @@ el elemento se sale de vista en la pantalla */
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 320px;
-  height: 167px;
+  width: 350px;
+  height: 220px;
   margin: 5px;
+  padding-left: 1.5%;
   border-radius: 6px;
   background-color: white;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 995px) {
+  #menu-cambiar-icono-container {
+    left: 200px;
+    top: 545px;
+  }
 }
 
 #menu-cambiar-icono-titulo {
