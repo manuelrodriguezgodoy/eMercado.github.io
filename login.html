@@ -2,7 +2,8 @@
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" type="text/css" href="css/login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,41 +18,39 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
   </head>
 
-  <body id="bgLogin">
-    <div class="formulario_login">
-      <h1 class="text-center">Inicio de sesión</h1>
-      <div class="form-container">
-        <div class="formulario">
-
-          <!-- Username -->
-          <label for="uname" class="text"><b>Usuario</b></label>
-          <input class="form-control mb-3" type="email" name="correo" required
-            id="mailuser"
-            placeholder="Email address" />
-          <div class="contraseña-container">
-            <!-- Password -->
-            <label for="pwd" class="text"><b>Contraseña</b></label>
-            <div class="btn-input-wrapper">
-              <input class="form-control mb-3" type="password" name="password"
-                id="passwordUser" required placeholder="Password" />
-              <button class="btn btn-outline-secondary" type="button"
-                id="mostrarContraseña">
-                👁️
-              </button>
-            </div>
+  <body>
+    <main class="page-wrapper">
+      <div class="container">
+          <div class="row mt-5">
+              <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10">
+                  <div class="formulario_login">
+                      <h1 class="text-center">Inicio de sesión</h1>
+                      <div class="form-container">
+                          <div class="formulario">
+                              <input class="form-control mb-3" type="email" name="correo" required id="mailuser"
+                                  placeholder="Email address" />
+                              <div class="contraseña-container">
+                                  <div class="input-group mb-3">
+                                      <input class="form-control" type="password" name="password" id="passwordUser"
+                                          required placeholder="Password" />
+                                      <div class="input-group-append">
+                                          <button class="btn btn-outline-secondary" type="button"
+                                              id="mostrarContraseña">👁️</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-check mb-3">
+                                  <input type="checkbox" class="form-check-input" id="recordarme" />
+                                  <label class="form-check-label" for="recordarme">Recordar mi correo</label>
+                              </div>
+                              <button class="btn btn-primary btn-block" id="loginbutton">Login</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="form-check mb-3">
-          <input type="checkbox" class="form-check-input"
-            id="recordarme" />
-          <label class="form-check-label" for="recordarme">Recordar mi
-            correo</label>
-        </div>
-        <button class="btn btn-primary btn-block" id="loginbutton">Login</button>
-        <br><br>
-      </form>
-
-    </div>
+      </div>
+  </main>
     <script src="js/login.js"></script>
   </body>
 </html>
