@@ -34,13 +34,15 @@ app.get("/login", (req, res) => {
 
 const authMiddleware = (req, res, next) => {
   const tokenWitCookie = req.headers['cookie'];
-  const token = tokenWitCookie.replace('access-token=', '');
-  if (!token) {
+  
+  if (!tokenWitCookie || !tokenWitCookie.includes('access-token=')) {
     return res.status(401).json({
       message: "Token no proporcionado",
       error: "No se proporcionó un token",
     });
   }
+
+  const token = tokenWitCookie.replace('access-token=', '');
 
   try {
     const decoded = jwt.verify(token, SECRET_KEY);
